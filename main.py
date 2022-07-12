@@ -11,36 +11,32 @@ super_sword = Sword('Super Sword', 19, 22, 51)
 
 chicken = Chicken('Chicken', 50, 10)
 bread = Bread('Bread', 30, 6)
+super_chicken = Chicken('Super Chicken', 120, 20)
+super_bread = Bread('Super Bread', 90, 21)
 
 weapon_array = []
-
 weapon_array.append(dict(index=1, item=axe))
 weapon_array.append(dict(index=2, item=sword))
 weapon_array.append(dict(index=3, item=super_axe))
 weapon_array.append(dict(index=4, item=super_sword))
 
-hero = Hero('Petro Poroshenko', 1000000, axe, sword)
+food_array = []
+food_array.append(dict(index=1, food=chicken))
+food_array.append(dict(index=2, food=bread))
+food_array.append(dict(index=3, food=super_chicken))
+food_array.append(dict(index=4, food=super_bread))
 
-
-shop = Shop(weapon_array, hero)
-
-hero.set_experience(340)
-hero.set_perks()
-
-print(hero.experience)
-print(hero.strengths)
-print(hero.next_level_experience)
-print('HP: ', hero.strengths * 10)
+hero = Hero('Petro Poroshenko', 1000000, sword)
+shop = Shop(weapon_array, food_array, hero)
 
 # while True:
 #     world_action = int(randint(0, 10))
 #     if world_action == 0:
-#         print(hero.right_hand_weapon.weapon_name)
 #         print('Shop')
 #         shop.enter_to_shop()
-#         print(hero.right_hand_weapon.weapon_name)
 #         continue
 #     elif world_action == 1:
 #         print('Monster')
 #     else:
 #         input('Walking...')
+

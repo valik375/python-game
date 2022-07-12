@@ -4,4 +4,3 @@ class Food:
         self.name = name
         self.recovery_value = recovery_value
         self.price = price
-

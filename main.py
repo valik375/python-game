@@ -13,7 +13,10 @@ super_sword = Sword('Super Sword', 19, 22, 51)
 chicken = Chicken('Chicken', 50, 10)
 bread = Bread('Bread', 30, 6)
 
-enemy = Enemy('Swiper', 100, 10, 25, 150)
+hero = Hero('Petro Poroshenko', 1000000, axe, sword)
+enemy = Enemy('Swiper', 100, hero.level, 25, 150)
+
+print(enemy.name, enemy.level)
 
 weapon_array = []
 
@@ -21,8 +24,6 @@ weapon_array.append(dict(index=1, item=axe))
 weapon_array.append(dict(index=2, item=sword))
 weapon_array.append(dict(index=3, item=super_axe))
 weapon_array.append(dict(index=4, item=super_sword))
-
-hero = Hero('Petro Poroshenko', 1000000, axe, sword)
 
 shop = Shop(weapon_array, hero)
 

@@ -1,4 +1,4 @@
-from food.food import Food
+from food import Food
 
 
 class Chicken(Food):

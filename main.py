@@ -21,10 +21,10 @@ weapon_array.append(dict(index=3, item=super_axe))
 weapon_array.append(dict(index=4, item=super_sword))
 
 food_array = []
-food_array.append(dict(index=1, food=chicken))
-food_array.append(dict(index=2, food=bread))
-food_array.append(dict(index=3, food=super_chicken))
-food_array.append(dict(index=4, food=super_bread))
+food_array.append(dict(index=1, item=chicken))
+food_array.append(dict(index=2, item=bread))
+food_array.append(dict(index=3, item=super_chicken))
+food_array.append(dict(index=4, item=super_bread))
 
 hero = Hero('Petro Poroshenko', 1000000, sword)
 shop = Shop(weapon_array, food_array, hero)

@@ -4,6 +4,14 @@ class Shop:
         self.foods = foods
         self.hero = hero
 
+    # def shop_item(self, section_name, items_array):
+    #     print(f'---/  {section_name}  /---')
+    #     print(f'Your money: {self.hero.money}')
+    #     for array_item in items_array:
+    #         array_item_index = items_array['index']
+    #         array_item_item = items_array['item']
+    #         print(f'{array_item_item.weapon_name} --- ${array_item_item.price} [{array_item_index}]')
+
     def weapon_shop(self):
         print('---/  Weapons  /---')
         print(f'Your money: {self.hero.money}')

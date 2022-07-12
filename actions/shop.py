@@ -39,7 +39,7 @@ class Shop:
 
         for food in self.foods:
             food_index = food['index']
-            food_item = food['food']
+            food_item = food['item']
             print(f'{food_item.name} --- ${food_item.price} [{food_index}]')
 
         print('Back [0]')

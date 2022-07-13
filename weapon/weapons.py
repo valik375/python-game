@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 
 class Weapon(ABC):
 
-    def __init__(self, weapon_name, damage, stamina, price):
+    def __init__(self, name, damage, stamina, price):
         super().__init__()
-        self.weapon_name = weapon_name
+        self.name = name
         self.damage = damage
         self.stamina = stamina
         self.price = price
@@ -18,11 +18,11 @@ class Weapon(ABC):
 class Axe(Weapon):
 
     def hit(self):
-        print(f'{self.weapon_name} - {self.damage} damage')
+        print(f'{self.name} - {self.damage} damage')
 
 
 class Sword(Weapon):
 
     def hit(self):
-        print(f'{self.weapon_name} - {self.damage} damage')
+        print(f'{self.name} - {self.damage} damage')
 

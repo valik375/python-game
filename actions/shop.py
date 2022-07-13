@@ -4,52 +4,24 @@ class Shop:
         self.foods = foods
         self.hero = hero
 
-    # def shop_item(self, section_name, items_array):
-    #     print(f'---/  {section_name}  /---')
-    #     print(f'Your money: {self.hero.money}')
-    #     for array_item in items_array:
-    #         array_item_index = items_array['index']
-    #         array_item_item = items_array['item']
-    #         print(f'{array_item_item.weapon_name} --- ${array_item_item.price} [{array_item_index}]')
-
-    def weapon_shop(self):
-        print('---/  Weapons  /---')
+    def shop_section(self, section_name, items_array):
+        print(f'---/  {section_name}  /---')
         print(f'Your money: {self.hero.money}')
-        for weapon in self.weapons:
-            weapon_index = weapon['index']
-            weapon_item = weapon['item']
-            print(f'{weapon_item.weapon_name} --- ${weapon_item.price} [{weapon_index}]')
+        for item in items_array:
+            array_item_index = item['index']
+            array_item_item = item['item']
+            print(f'{array_item_item.name} --- ${array_item_item.price} [{array_item_index}]')
 
         print('Back [0]')
-        selected_weapon_index = int(input('Select weapon: '))
-
-        if selected_weapon_index != 0:
-            selected_weapon = self.weapons[selected_weapon_index - 1]['item']
-            if self.hero.money > selected_weapon.price:
-                self.hero.minus_money(selected_weapon.price)
-                self.hero.change_right_hand_weapon(selected_weapon.price)
-            else:
-                print('You have no money!')
-        else:
-            print('Back!')
-
-    def food_shop(self):
-        print('---/  Food  /---')
-        print(f'Your money: {self.hero.money}')
-
-        for food in self.foods:
-            food_index = food['index']
-            food_item = food['item']
-            print(f'{food_item.name} --- ${food_item.price} [{food_index}]')
-
-        print('Back [0]')
-        selected_food_index = int(input('Select food: '))
-
-        if selected_food_index != 0:
-            selected_food = self.foods[selected_food_index - 1]['food']
-            if self.hero.money > selected_food.price and hero.hit_points:
-                self.hero.minus_money(selected_food.price)
-                self.hero.add_hip_points(selected_food.recovery_value)
+        selected_item_index = int(input('Select index: '))
+        if selected_item_index != 0:
+            selected_item = items_array[selected_item_index - 1]['item']
+            if self.hero.money > selected_item.price:
+                self.hero.minus_money(selected_item.price)
+                if section_name == 'Weapon':
+                    self.hero.change_right_hand_weapon(selected_item.price)
+                else:
+                    self.hero.add_hit_points(selected_item.recovery_value)
             else:
                 print('You have no money!')
         else:
@@ -62,11 +34,11 @@ class Shop:
             print('Weapon [1]')
             print('Food [2]')
             print('Exit [3]')
-            shop_map = input('Select shop option: ')
+            shop_map = int(input('Select shop option: '))
 
-            if shop_map == '1':
-                self.weapon_shop()
-            elif shop_map == '2':
-                self.food_shop()
+            if shop_map == 1:
+                self.shop_section('Weapon', self.weapons)
+            elif shop_map == 2:
+                self.shop_section('Food', self.foods)
             else:
                 break

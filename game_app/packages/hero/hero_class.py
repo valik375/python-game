@@ -1,5 +1,5 @@
 class Hero:
-    def __init__(self, name, money, right_hand_weapon):
+    def __init__(self, name, money, weapon):
         self.name = name
         self.level = 1
         self.level_points = 1
@@ -18,7 +18,7 @@ class Hero:
         self.mana = self.intelegent * 10
 
         self.money = money
-        self.right_hand_weapon = right_hand_weapon
+        self.right_hand_weapon = weapon
 
     def right_hand_hit(self):
         self.right_hand_weapon.hit()

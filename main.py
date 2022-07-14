@@ -1,9 +1,7 @@
-from random import randint
-from hero.hero_class import Hero
-from weapon.weapons import Axe, Sword
-from food.dishes import Chicken, Bread
-from actions.shop import Shop
-from enemies.enemies import Enemy, Boss
+from game_app.packages.hero.hero_class import Hero
+from game_app.packages.weapon.weapons import Axe, Sword
+from game_app.packages.food.dishes import Chicken, Bread
+from game_app.packages.actions.shop import Shop
 
 axe = Axe('Axe', 20, 15, 51)
 sword = Sword('Sword', 13, 10, 36)

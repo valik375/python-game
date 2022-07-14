@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import font as tkfont
-from pages.home_page import HomePage
-from pages.page_one import PageOne
-from pages.page_two import PageTwo
+from home_page import HomePage
+from page_one import PageOne
+from page_two import PageTwo
 
 
 class GameApp(tk.Tk):

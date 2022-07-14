@@ -1,8 +1,13 @@
 import tkinter as tk
 from tkinter import font as tkfont
 from home_page import HomePage
-from page_one import PageOne
-from page_two import PageTwo
+from shop_page import ShopPage
+from game_map import GameMap
+from packages.hero.hero_class import Hero
+
+hero_vlad = Hero('Vlad', 100, 'Hand')
+hero_valik = Hero('Valik', 100, 'Hand')
+hero_list = [hero_vlad, hero_valik]
 
 
 class GameApp(tk.Tk):
@@ -17,11 +22,10 @@ class GameApp(tk.Tk):
         window.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        for f in (HomePage, PageOne, PageTwo):
+        for f in (HomePage, ShopPage, GameMap):
             page_name = f.__name__
-            frame = f(parent=window, controller=self)
+            frame = f(parent=window, controller=self, heroes=hero_list)
             self.frames[page_name] = frame
-
             frame.grid(row=0, column=0, sticky="nsew")
 
         self.show_frame("HomePage")
@@ -33,4 +37,5 @@ class GameApp(tk.Tk):
 
 if __name__ == "__main__":
     app = GameApp()
+    app.geometry('1000x600')
     app.mainloop()

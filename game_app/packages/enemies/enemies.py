@@ -18,17 +18,6 @@ class Boss(Enemy):
         return self.loot_price
 
 
-enemy1 = Enemy('S', 50, 1)
-enemy2 = Enemy('W', 60, 2)
-enemy3 = Enemy('I', 70, 3)
-enemy4 = Enemy('P', 80, 4)
-boss = Boss('E', 1000, 5)
-
-enemy1.get_info()
-enemy2.get_info()
-enemy3.get_info()
-enemy4.get_info()
-boss.get_info()
 
 
 

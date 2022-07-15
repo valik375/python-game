@@ -18,11 +18,11 @@ class Weapon(ABC):
 class Axe(Weapon):
 
     def hit(self):
-        print(f'{self.name} - {self.damage} damage')
+        return self.damage
 
 
 class Sword(Weapon):
 
     def hit(self):
-        print(f'{self.name} - {self.damage} damage')
+        return self.damage
 

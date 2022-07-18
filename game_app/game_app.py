@@ -26,9 +26,9 @@ class GameApp(tk.Tk):
         self.create_frame(window, HomePage)
         self.show_frame("HomePage")
 
-    def create_frame(self, par, page):
+    def create_frame(self, parent, page):
         page_name = page.__name__
-        frame = page(parent=par, controller=self, heroes=hero_list)
+        frame = page(parent=parent, controller=self, heroes=hero_list)
         self.frames[page_name] = frame
         frame.grid(row=0, column=0, sticky="nsew")
 

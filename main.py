@@ -31,12 +31,12 @@ food_array.append(dict(index=4, item=super_bread))
 hero = Hero('Petro Poroshenko', 1000000, sword)
 shop = Shop(weapon_array, food_array, hero)
 
-# for index in range(5):
-#     oleg_level = index + 1
-#     oleg_crip = Monster(f'Oleg {oleg_level}', oleg_level)
-#     print(f'Бiйка з {oleg_crip.name}')
-#
-#     fight_process(hero, oleg_crip)
+for index in range(5):
+    oleg_level = index + 1
+    oleg_crip = Monster(f'Oleg {oleg_level}', oleg_level)
+    print(f'Бiйка з {oleg_crip.name}')
+
+    fight_process(hero, oleg_crip)
 
 
 ihor = Boss(1, 'IGIBO')

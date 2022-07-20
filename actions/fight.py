@@ -1,3 +1,4 @@
+from random import randint
 
 
 def fight_process(hero_class, enemy_class):
@@ -48,9 +49,10 @@ def fight_process(hero_class, enemy_class):
                 else:
                     print('You Won!')
             else:
-                hero_class.set_experience(enemy_class.drop_experience())
+                hero_class.set_experience(enemy_class.experience)
+                hero_class.set_money(enemy_class.money)
         else:
-            enemy_class.hit()
+            print(f'{enemy_class.dialogs[int(randint(0, 3))]}')
             if hero_class.hit_points <= enemy_class.damage:
                 print('You Die...')
                 break

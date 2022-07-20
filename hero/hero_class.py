@@ -71,3 +71,6 @@ class Hero:
         while self.experience >= self.next_level_experience:
             self.experience -= self.next_level_experience
             self.level_up()
+
+    def set_money(self, money_value):
+        self.money = self.money + money_value

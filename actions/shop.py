@@ -8,9 +8,7 @@ class Shop:
         print(f'---/  {section_name}  /---')
         print(f'Your money: {self.hero.money}')
         for item in items_array:
-            array_item_index = item['index']
-            array_item_item = item['item']
-            print(f'{array_item_item.name} --- ${array_item_item.price} [{array_item_index}]')
+            print(f'{item["item"].name} --- ${item["item"].price} [{item["index"]}]')
 
         print('Back [0]')
         selected_item_index = int(input('Select index: '))

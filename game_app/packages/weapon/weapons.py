@@ -1,11 +1,28 @@
-class Weapon:
-    def __init__(self, weapon_name, damage, price):
+from abc import ABC, abstractmethod
+
+
+class Weapon(ABC):
+
+    def __init__(self, name, damage, stamina, price):
         super().__init__()
-        self.weapon_name = weapon_name
+        self.name = name
         self.damage = damage
+        self.stamina = stamina
         self.price = price
 
+    @abstractmethod
     def hit(self):
         pass
 
+
+class Axe(Weapon):
+
+    def hit(self):
+        return self.damage
+
+
+class Sword(Weapon):
+
+    def hit(self):
+        return self.damage
 

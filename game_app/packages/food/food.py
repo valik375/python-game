@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class Food(ABC):
@@ -7,4 +7,3 @@ class Food(ABC):
         self.name = name
         self.recovery_value = recovery_value
         self.price = price
-

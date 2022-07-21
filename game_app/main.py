@@ -1,7 +1,10 @@
-from game_app.packages.hero.hero_class import Hero
-from game_app.packages.weapon.weapons import Axe, Sword
-from game_app.packages.food.dishes import Chicken, Bread
-from game_app.packages.actions.shop import Shop
+from packages.monsters.monster import Monster
+from packages.hero.hero_class import Hero
+from packages.weapon.weapons import Axe, Sword
+from packages.food.dishes import Chicken, Bread
+from packages.actions.shop import Shop
+from packages.monsters.bosses import Boss
+from packages.actions.fight import fight_process
 
 axe = Axe('Axe', 20, 15, 51)
 sword = Sword('Sword', 13, 10, 36)
@@ -14,7 +17,6 @@ super_chicken = Chicken('Super Chicken', 120, 20)
 super_bread = Bread('Super Bread', 90, 21)
 
 weapon_array = []
-
 weapon_array.append(dict(index=1, item=axe))
 weapon_array.append(dict(index=2, item=sword))
 weapon_array.append(dict(index=3, item=super_axe))
@@ -29,13 +31,13 @@ food_array.append(dict(index=4, item=super_bread))
 hero = Hero('Petro Poroshenko', 1000000, sword)
 shop = Shop(weapon_array, food_array, hero)
 
-# while True:
-#     world_action = int(randint(0, 10))
-#     if world_action == 0:
-#         print('Shop')
-#         shop.enter_to_shop()
-#         continue
-#     elif world_action == 1:
-#         print('Monster')
-#     else:
-#         input('Walking...')
+for index in range(5):
+    oleg_level = index + 1
+    oleg_crip = Monster(f'Oleg {oleg_level}', oleg_level)
+    print(f'Бiйка з {oleg_crip.name}')
+
+    fight_process(hero, oleg_crip)
+
+
+ihor = Boss(1, 'IGIBO')
+fight_process(hero, ihor)

@@ -6,9 +6,9 @@ from game_map import GameMap
 from packages.weapon.weapons import Weapon
 
 weapons_list = []
-axe = Weapon('Axe', 30, 30)
-sword = Weapon('Sword', 20, 20)
-knife = Weapon('Knife', 10, 10)
+axe = Weapon('Axe', 30, 30, 25)
+sword = Weapon('Sword', 20, 20, 20)
+knife = Weapon('Knife', 10, 10, 10)
 
 for weapon in (axe, sword, knife):
     weapons_list.append(weapon)

@@ -1,11 +1,30 @@
-class Boss:
-    def __init__(self, level, name):
-        self.level = level
+class Enemy:
+    def __init__(self, name, level, dialogs, enemy_type):
         self.name = name
+        self.level = level
+        self.enemy_type = enemy_type
         self.damage = 10 * self.level
-        self.hit_points = 10 * self.level * 2
-        self.dialogs = ['Не iнтересно', 'Слабенько', 'Ну таке на 3', 'Iди роби хiдер']
-        self.block_skills_dialog = ['Не хочу я слухати цей бред', 'Перекур', 'Какой Курить нiякого курить', 'Тебе шо в гуглi забанили']
+        self.hit_points = 10 * self.level * 3.6
+        self.dialogs = dialogs
+
+    def change_hip_points(self, damage_value):
+        if self.hit_points <= int(damage_value):
+            self.hit_points = 0
+        else:
+            self.hit_points -= int(damage_value)
+
+
+class Monster(Enemy):
+    def __init__(self, name, level, dialogs, enemy_type):
+        super().__init__(name, level, dialogs, enemy_type)
+        self.experience = 100 * self.level
+        self.money = 10 * self.level * 1.2
+
+
+class Boss(Enemy):
+    def __init__(self, name, level, dialogs, enemy_type):
+        super().__init__(name, level, dialogs, enemy_type)
+        self.block_skills_dialog = ['Не хочу я слухати цей бред', 'Какой Курить нiякого курить', 'Тебе шо в гуглi забанили']
         self.quiz = [
             {
                 'text': 'Шо таке полiморфiзм?',
@@ -38,12 +57,6 @@ class Boss:
                 'good': 'Викопав чорне море i насыпав Карпати'
             },
         ]
-
-    def get_damage(self, damage_value):
-        if self.hit_points <= int(damage_value):
-            self.hit_points = 0
-        else:
-            self.hit_points -= int(damage_value)
 
     def block_skills(self, attack_index):
         return self.block_skills_dialog[int(attack_index)]

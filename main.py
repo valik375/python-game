@@ -1,9 +1,9 @@
-from monsters.monster import Monster
+from monsters.enemy import Monster
+from monsters.enemy import Boss
 from hero.hero_class import Hero
 from weapon.weapons import Axe, Sword
 from food.dishes import Chicken, Bread
 from actions.shop import Shop
-from monsters.bosses import Boss
 from actions.fight import fight_process
 
 axe = Axe('Axe', 20, 15, 51)
@@ -33,11 +33,12 @@ shop = Shop(weapon_array, food_array, hero)
 
 for index in range(5):
     oleg_level = index + 1
-    oleg_crip = Monster(f'Oleg {oleg_level}', oleg_level)
+    oleg_dialogs = ['На тобi КУРВА!', 'Отримуй!', 'Джета топ!', 'Получай!']
+    oleg_crip = Monster(f'Oleg {oleg_level}', oleg_level, oleg_dialogs, 'Crip')
     print(f'Бiйка з {oleg_crip.name}')
 
-    fight_process(hero, oleg_crip)
+    fight_process(hero, oleg_crip, shop)
 
-
-ihor = Boss(1, 'IGIBO')
-fight_process(hero, ihor)
+ihor_dialog = ['Не iнтересно', 'Слабенько', 'Ну таке на 3', 'Iди роби хiдер']
+ihor = Boss('IGIBO', 1, ihor_dialog, 'Boss')
+fight_process(hero, ihor, shop)

@@ -37,7 +37,7 @@ class Hero:
         else:
             return self.attacks[attack_index]['damage']
 
-    def get_damage(self, damage_value):
+    def change_hip_points(self, damage_value):
         if self.hit_points <= int(damage_value):
             self.hit_points = 0
         else:
@@ -50,7 +50,7 @@ class Hero:
         self.money -= int(minus_value)
 
     def plus_money(self, plus_value):
-        self.money += int(plus_value)
+        self.money = self.money + int(plus_value)
 
     def add_hit_points(self, added_hit_points):
         self.hit_points += int(added_hit_points)
@@ -71,6 +71,3 @@ class Hero:
         while self.experience >= self.next_level_experience:
             self.experience -= self.next_level_experience
             self.level_up()
-
-    def set_money(self, money_value):
-        self.money = self.money + money_value

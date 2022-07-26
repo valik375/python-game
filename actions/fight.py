@@ -1,5 +1,7 @@
 from random import randint
 
+from monsters.enemy import Boss
+
 
 def shop_section(section_name, items_array, hero):
     print(f'---/  {section_name}  /---')
@@ -12,7 +14,7 @@ def shop_section(section_name, items_array, hero):
     if selected_item_index != 0:
         selected_item = items_array[selected_item_index - 1]['item']
         if hero.money > selected_item.price:
-            hero.minus_money(selected_item.price)
+            hero.money -= selected_item.price
             if section_name == 'Weapon':
                 hero.change_right_hand_weapon(selected_item.price)
             else:
@@ -36,7 +38,7 @@ def fight_process(hero_class, enemy_class, shop):
         for i, attack in enumerate(hero_class.attacks):
             if str(i) == hero_action:
                 if enemy_class.enemy_type == 'Boss':
-                    if attack['name'] == 'Влупити (Default)':
+                    if attack['id'] == 4:
                         print(f'Дiя {attack["name"]} - {hero_class.attack(i)} dmg')
                         enemy_class.change_hip_points(hero_class.attack(i))
                     else:
@@ -46,7 +48,7 @@ def fight_process(hero_class, enemy_class, shop):
                     enemy_class.change_hip_points(hero_class.attack(i))
 
         if enemy_class.hit_points == 0:
-            if enemy_class.enemy_type == 'Boss':
+            if isinstance(enemy_class, Boss):
                 quiz_index = 0
                 while quiz_index <= 2:
                     print('-------------------------------------------')
@@ -72,7 +74,7 @@ def fight_process(hero_class, enemy_class, shop):
                     print('You Won!')
             else:
                 hero_class.set_experience(enemy_class.experience)
-                hero_class.plus_money(enemy_class.money)
+                hero_class.money += enemy_class.money
                 while True:
                     print('---/  SHOP  /---')
                     print('Seller: Welcome in my shop!')

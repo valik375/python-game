@@ -1,8 +1,8 @@
 class Enemy:
-    def __init__(self, name, level, dialogs, enemy_type):
+
+    def __init__(self, name, level, dialogs):
         self.name = name
         self.level = level
-        self.enemy_type = enemy_type
         self.damage = 10 * self.level
         self.hit_points = 10 * self.level * 3.6
         self.dialogs = dialogs
@@ -15,15 +15,15 @@ class Enemy:
 
 
 class Monster(Enemy):
-    def __init__(self, name, level, dialogs, enemy_type):
-        super().__init__(name, level, dialogs, enemy_type)
+    def __init__(self, name, level, dialogs):
+        super().__init__(name, level, dialogs)
         self.experience = 100 * self.level
         self.money = 10 * self.level * 1.2
 
 
 class Boss(Enemy):
-    def __init__(self, name, level, dialogs, enemy_type):
-        super().__init__(name, level, dialogs, enemy_type)
+    def __init__(self, name, level, dialogs):
+        super().__init__(name, level, dialogs)
         self.block_skills_dialog = ['Не хочу я слухати цей бред', 'Какой Курить нiякого курить', 'Тебе шо в гуглi забанили']
         self.quiz = [
             {

@@ -14,25 +14,29 @@ class Hero:
 
         self.attacks = [
             {
+                'id': 1,
                 'name': 'Нести бред',
                 'damage': 10
             },
             {
+                'id': 2,
                 'name': 'Перекур',
                 'damage': 10
             },
             {
+                'id': 3,
                 'name': 'У мене питання',
                 'damage': 10
             },
             {
+                'id': 4,
                 'name': 'Влупити (Default)',
                 'damage': self.right_hand_weapon.damage
             },
         ]
 
     def attack(self, attack_index):
-        if self.attacks[attack_index]['name'] != 'Влупити (Default)':
+        if self.attacks[attack_index]['id'] != 4:
             return self.attacks[attack_index]['damage'] * self.level + 10
         else:
             return self.attacks[attack_index]['damage']
@@ -42,15 +46,6 @@ class Hero:
             self.hit_points = 0
         else:
             self.hit_points -= int(damage_value)
-
-    def change_weapon(self, new_weapon):
-        self.right_hand_weapon = new_weapon
-
-    def minus_money(self, minus_value):
-        self.money -= int(minus_value)
-
-    def plus_money(self, plus_value):
-        self.money = self.money + int(plus_value)
 
     def add_hit_points(self, added_hit_points):
         self.hit_points += int(added_hit_points)
